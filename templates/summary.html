@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <title>Summary</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+            list-style: none;
+            text-decoration: none;
+            scroll-behavior: smooth;
+            font-family: 'Bree Serif', serif;
+        }
+
+        header{
+            position: fixed;
+            width: 100%;
+            top:0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 10%;
+            transition: 0.2s;
+            background-color: #f2f2f2;
+        }
+        .logo{
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: black;
+        }
+        
+        .logo img{
+            width: 60px;
+            margin-right: 10px;
+            align-items: center;
+            margin-top: 10px;
+        }
+        body {
+            font-family: 'Bree Serif', serif;
+            text-align: center;
+            margin-top: 100px;
+            background-image: url("/static/img/vegetablebackgroound.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        h1 {
+           
+            font-size: 50px;
+            color: rgb(8, 8, 8);
+            text-align: center;
+            font-family: 'Russo One', sans-serif;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(15, 15, 15, 0.2);
+          }
+
+        p {
+            font-weight: bold;
+            color: rgb(13, 13, 13);
+        }
+
+        .result {
+            
+            font-size: 40px;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><img src="/static/img/HealthMeta.png" alt="">HealthMate</a>
+     </header>
+    
+    <div class="result">
+        <h1>The number of calories you have consumed so far</h1>
+        <p>Total calories consumed: {{ total_calories }}</p>
+        <p>Goal: {{ goal }}</p>
+        {% if total_calories > goal %}
+            <p>You consumed {{ total_calories - goal }} calories over your daily goal.</p>
+        {% elif total_calories < goal %}
+            <p>You consumed {{ goal - total_calories }} calories under your daily goal.</p>
+        {% else %}
+            <p>You met your daily calorie intake goal!</p>
+        {% endif %}
+    </div>
+</body>
+</html>

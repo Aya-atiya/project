@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">   
+    <title>Upload Image</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+            list-style: none;
+            text-decoration: none;
+            scroll-behavior: smooth;
+            font-family: 'Bree Serif', serif;
+        }
+        header{
+            position: fixed;
+            width: 100%;
+            top:0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 10%;
+            transition: 0.2s;
+        }
+        
+        .logo{
+            display: flex;
+            align-items: top;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: black;
+        }
+        
+        .logo img{
+            width: 60px;
+            margin-right: 10px;
+        }
+        
+        .navbar{
+            display: flex;
+        }
+        
+        .navbar a{
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            color: black;
+            font-weight: 500;
+            background-color: white;
+        }
+        
+        .navbar a:hover{
+            color: aliceblue;
+            background: green;
+            border-radius: 4px;
+        }
+        h1{
+            font-size: 39px;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: green;
+        }
+        
+        span{
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight:600;
+            
+        }
+        
+        .form {
+            background-color: #fff;
+            box-shadow: 0 10px 60px rgb(218, 229, 255);
+            border: 1px solid rgb(159, 159, 160);
+            border-radius: 20px;
+            padding: 2rem .7rem .7rem .7rem;
+            text-align: center;
+            font-size: 1.125rem;
+            max-width: 320px;
+          }
+          .form-title {
+            color: #000000;
+            font-size: 1.8rem;
+            font-weight: 500;
+          }
+          .form-paragraph {
+            margin-top: 10px;
+            font-size: 0.9375rem;
+            color: rgb(105, 105, 105);
+          }
+          .home{
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background: url(/static/img/Breakfast-food-Backgrounds.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            gap:1rem;
+        }
+
+        .main{
+            padding-left: 200px;
+            margin-top: 20px;
+        }
+
+        #file-input {
+            width: 350px;
+            max-width: 100%;
+            color: #444;
+            padding: 2px;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid rgba(8, 8, 8, 0.288);
+          }
+          
+          #file-input::file-selector-button {
+            margin-right: 20px;
+            border: none;
+            background: green;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            transition: background .2s ease-in-out;
+          }
+          
+          #file-input::file-selector-button:hover {
+            background: rgb(28, 203, 75);
+          }
+          .custom-button {
+            width: 9em;
+            height: 3em;
+            border-radius: 30em;
+            font-size: 15px;
+            font-family: inherit;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 6px 6px 12px #c5c5c5,
+             -6px -6px 12px #ffffff;
+          }
+          .custom-button:hover {
+            background-color: #45a049; /* Darken the background color on hover */
+          }
+          
+          .calories{
+            margin-top: 20px;
+
+          }
+
+          button {
+            margin-top: 20px;
+            width: 9em;
+            height: 3em;
+            border-radius: 30em;
+            font-size: 15px;
+            font-family: inherit;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 6px 6px 12px #c5c5c5,
+                        -6px -6px 12px #ffffff;
+           }
+           
+           button::before {
+            content: '';
+            width: 0;
+            height: 3em;
+            border-radius: 30em;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+            transition: .5s ease;
+            display: block;
+            z-index: -1;
+           }
+           
+           button:hover::before {
+            width: 9em;
+           }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo"><img src="/static/img/HealthMeta.png" alt="">HealthMate</a>
+        <ul class="navbar">
+            <li><a href="home.html">Home</a></li>
+        </ul>
+     </header>
+
+    <section class="home" id="home">
+        <div class="main">
+        <h1>Welcome to FOOD section</h1>
+        <br>
+        <span>Please upload a picture of the Food</span>
+        
+    <form class="form" method="POST" action="/" enctype="multipart/form-data">
+        <span class="form-title">Upload your file</span>
+        <p class="form-paragraph">
+            File should be an image
+          </p>
+          <input type="file" name="image" accept="image/*" required id="file-input"><br><br>
+        <input type="submit" value="Upload" class="custom-button">
+    </form>
+    
+        <div class="calories">
+            <h3>For calculating daily calories</h3>
+            <a href="https://majestic-exciting-pen.anvil.app/">
+            <button> Click here!
+            </button>
+             </a>
+        </div>
+
+
+    </div>
+    </section>
+
+    
+</body>
+</html>
